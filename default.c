@@ -19,6 +19,8 @@ long LastValue = 0;
 pinMode(encoderPin1, INPUT);
 pinMode(encoderPin2, INPUT);
 pinMode(buttonPin, INPUT);
+digitalWrite(encoderPin1, HIGH);
+digitalWrite(encoderPin2, HIGH);
 //Beginning
 Mouse.begin();
 Keyboard.begin();
