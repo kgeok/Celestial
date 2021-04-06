@@ -10,8 +10,15 @@ void setup()
 {
 //Pin Programming
 int responseDelay = 10;
+int encoderPin1 = 2;
+int encoderPin2 = 3;
 int buttonPin = 4;
 int selection = 1;
+int direction;
+long LastValue = 0;
+pinMode(encoderPin1, INPUT);
+pinMode(encoderPin2, INPUT);
+pinMode(buttonPin, INPUT);
 //Beginning
 Mouse.begin();
 Keyboard.begin();
@@ -56,7 +63,6 @@ Serial.println("Scroll: -");
 void Program(int select, int dir){
 
 switch (select){
-
     case 1:
         zoom(dir);
         Serial.write("Changed to Zoom");
@@ -69,7 +75,6 @@ switch (select){
         select = 1;
         Serial.write("Cycled");
     break;
-
 }
 
 }
@@ -79,12 +84,11 @@ void loop()
 {
 //Button Definition
 if (digitalRead(ButtonPin) == HIGH){
-
     selection = selection + 1;
-
 }
 
 
 
+Program(selection, direction);
 
 }
